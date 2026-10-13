@@ -14,3 +14,11 @@ config/name="Burgerception"
 config/description="Enter an interesting project description here!"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/twitcher/plugin.cfg")
+
+[twitcher]
+
+editor/show_setup_on_startup=false
