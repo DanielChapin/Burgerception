@@ -5,7 +5,9 @@
 
 [resource]
 script = ExtResource("2_d63kr")
+redirect_url = "http://localhost:7177"
 token_url = "https://id.twitch.tv/oauth2/token"
 authorization_url = "https://id.twitch.tv/oauth2/authorize"
 device_authorization_url = "https://id.twitch.tv/oauth2/device"
 client_id = "6edp2n2et5kpr253yzg2mcsa2cwk3u"
+authorization_flow = 2
