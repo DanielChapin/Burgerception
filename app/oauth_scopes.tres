@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TwitchOAuthScopes" format=3 uid="uid://bboxhfs3gfklb"]
+
+[ext_resource type="Script" uid="uid://b3n3et8mebjcc" path="res://addons/twitcher/auth/twitch_oauth_scopes.gd" id="1_tro6i"]
+
+[resource]
+script = ExtResource("1_tro6i")
+used_scopes = Array[StringName]([&"user:bot", &"user:read:chat", &"user:write:chat"])
+metadata/_custom_type_script = "uid://b3n3et8mebjcc"

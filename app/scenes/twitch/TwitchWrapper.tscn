@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://1hc5l4pos2og"]
+
+[ext_resource type="Script" uid="uid://i8st3lv0lidh" path="res://addons/twitcher/twitch_service.gd" id="1_nhrqb"]
+[ext_resource type="Resource" uid="uid://d0cdc1wyankdb" path="res://twitch_oauth_setting.tres" id="2_x77sr"]
+[ext_resource type="Resource" uid="uid://dik3ngniojkam" path="res://twitch_oauth_token.tres" id="3_3gqmb"]
+[ext_resource type="Resource" uid="uid://bboxhfs3gfklb" path="res://oauth_scopes.tres" id="3_h6k05"]
+
+[node name="TwitchWrapper" type="Node" unique_id=1744304500]
+script = ExtResource("1_nhrqb")
+oauth_setting = ExtResource("2_x77sr")
+scopes = ExtResource("3_h6k05")
+token = ExtResource("3_3gqmb")
+metadata/_custom_type_script = "uid://i8st3lv0lidh"
