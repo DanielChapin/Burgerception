@@ -9,7 +9,7 @@ func test_push_get_one():
 	var order = Order.new()
 	watch_signals(order)
 
-	var entry = OrderEntry.new()
+	var entry = OrderEntry.new(Ingredient.Kind.PATTY, null)
 	order.push_entry(entry)
 
 	assert_signal_emitted_with_parameters(order.pushed_entry, [entry])
@@ -23,11 +23,11 @@ func test_finalize_one():
 	var order = Order.new()
 	watch_signals(order)
 
-	var entry = OrderEntry.new()
+	var entry = OrderEntry.new(Ingredient.Kind.PATTY, null)
 	order.push_entry(entry)
 
 	order.finalize()
-	order.push_entry(OrderEntry.new())
+	order.push_entry(OrderEntry.new(Ingredient.Kind.LETTUCE, null))
 
 	assert_signal_emit_count(order.pushed_entry, 1)
 	assert_signal_emit_count(order.finalized, 1)
