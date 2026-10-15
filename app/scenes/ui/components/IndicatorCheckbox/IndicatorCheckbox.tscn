@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d4e7x3v7l7xcx"]
+
+[ext_resource type="Script" uid="uid://27swj41yh557" path="res://scenes/ui/components/IndicatorCheckbox/indicator_checkbox.gd" id="1_q7fc0"]
+
+[node name="IndicatorCheckbox" type="TextureRect" unique_id=705140835]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+stretch_mode = 4
+script = ExtResource("1_q7fc0")
