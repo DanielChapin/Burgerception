@@ -2,7 +2,7 @@ class_name OrderEntryRow
 
 var number_label: OrderUpTicketNumLabel
 var status_indicator: IndicatorCheckbox
-var ingredient_label: Node # TODO Type?
+var ingredient_label: IngredientLabel
 var diner_label: ChatterLabel
 
 const NUM_LABEL := preload("res://scenes/ui/OrderUpTicket/NumLabel.tscn")

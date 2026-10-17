@@ -53,6 +53,7 @@ func add_row(row: OrderEntryRow):
 	for node in row.as_nodes():
 		order_entries_grid.add_child(node)
 
+var _previously_focused: int
 func focus_row(index: int):
 	if index >= len(rows):
 		return
@@ -62,6 +63,11 @@ func focus_row(index: int):
 	var height = scroll_container.size.y
 	var scroll = max(0, scroll_position_target - height / 2)
 	scroll_container.set_deferred("scroll_vertical", scroll)
+	
+	row.ingredient_label.make_bold.call_deferred()
+	if _previously_focused != -1 and _previously_focused < len(rows):
+		rows[_previously_focused].ingredient_label.make_bold(false)
+	set_deferred("_previously_focused", index)
 
 func _status_num_correct_changed(count: int, previous: int):
 	# When the number of correct ingredients changes, we need to update row
