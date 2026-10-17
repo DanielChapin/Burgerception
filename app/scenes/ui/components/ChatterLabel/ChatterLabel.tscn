@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://br2j23pbya4he"]
+
+[ext_resource type="Script" uid="uid://nsm1g0f6nl46" path="res://scenes/ui/components/ChatterLabel/chatter_label.gd" id="1_xu0yt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lr3om"]
+
+[node name="ChatterLabel" type="Label" unique_id=1017649115]
+label_settings = SubResource("LabelSettings_lr3om")
+script = ExtResource("1_xu0yt")

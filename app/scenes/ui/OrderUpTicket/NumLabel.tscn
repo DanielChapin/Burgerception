@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://44asnu28mnko"]
+
+[ext_resource type="Script" uid="uid://b5tj8qfmsidyr" path="res://scenes/ui/OrderUpTicket/num_label.gd" id="1_3e4vp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3e4vp"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="NumLabel" type="Label" unique_id=624905884]
+label_settings = SubResource("LabelSettings_3e4vp")
+horizontal_alignment = 2
+script = ExtResource("1_3e4vp")

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bivhe07ailqqo"]
+
+[ext_resource type="Script" uid="uid://cd6us3ipx7x4w" path="res://test/order_up_ticket/test_order_push_and_finalize.gd" id="1_gcm0v"]
+[ext_resource type="PackedScene" uid="uid://mrvnk7f0k7mp" path="res://scenes/ui/OrderUpTicket/OrderUpTicket.tscn" id="2_qxqlh"]
+
+[node name="TestOrderPushAndFinalize" type="Control" unique_id=1106885288]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gcm0v")
+
+[node name="OrderUpTicket" parent="." unique_id=822652159 instance=ExtResource("2_qxqlh")]
+layout_mode = 1

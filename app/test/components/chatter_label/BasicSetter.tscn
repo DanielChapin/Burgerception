@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dfwmn7vn8goll"]
+
+[ext_resource type="PackedScene" uid="uid://br2j23pbya4he" path="res://scenes/ui/components/ChatterLabel/ChatterLabel.tscn" id="1_nbp7n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nbp7n"]
+
+[node name="BasicSetter" type="Control" unique_id=1103803971]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChatterLabel" parent="." unique_id=1017649115 instance=ExtResource("1_nbp7n")]
+layout_mode = 0
+label_settings = SubResource("LabelSettings_nbp7n")
+chatter_name = "Monkeh"

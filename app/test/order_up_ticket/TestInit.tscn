@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ro0lwqq8vcd5"]
+
+[ext_resource type="PackedScene" uid="uid://mrvnk7f0k7mp" path="res://scenes/ui/OrderUpTicket/OrderUpTicket.tscn" id="1_d5u30"]
+[ext_resource type="Script" uid="uid://dbwk8s2ajq6do" path="res://test/order_up_ticket/test_init.gd" id="1_di3yc"]
+
+[node name="TestInit" type="Control" unique_id=1768468021]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_di3yc")
+
+[node name="OrderUpTicket" parent="." unique_id=822652159 instance=ExtResource("1_d5u30")]
+layout_mode = 1
