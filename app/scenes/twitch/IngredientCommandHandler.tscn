@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cr40mc8n5qal3"]
+
+[ext_resource type="Script" uid="uid://p3mqgwa0s11y" path="res://scenes/twitch/ingredient_command_handler.gd" id="1_bvlkp"]
+
+[node name="IngredientCommandHandler" type="Node" unique_id=284005286]
+script = ExtResource("1_bvlkp")
+regex_to_listen = "^YEP (.+)$"
+case_insensitive = false
+metadata/_custom_type_script = "uid://b374x1qdwge7q"
+
+[connection signal="command_received" from="." to="." method="_on_command_received"]

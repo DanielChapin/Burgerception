@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cbjoiygcewbtl"]
+
+[ext_resource type="Script" uid="uid://cbr250gwd78be" path="res://test/integration/ChatOrderUp/chat_order_up_test.gd" id="1_4qj5q"]
+[ext_resource type="PackedScene" uid="uid://mrvnk7f0k7mp" path="res://scenes/ui/OrderUpTicket/OrderUpTicket.tscn" id="2_sdigy"]
+[ext_resource type="PackedScene" uid="uid://1hc5l4pos2og" path="res://scenes/twitch/TwitchWrapper.tscn" id="3_dtjj1"]
+[ext_resource type="PackedScene" uid="uid://cr40mc8n5qal3" path="res://scenes/twitch/IngredientCommandHandler.tscn" id="4_3tlai"]
+[ext_resource type="Script" uid="uid://blmhj3j00yk45" path="res://addons/twitcher/eventsub/twitch_eventsub.gd" id="4_63sog"]
+[ext_resource type="Script" uid="uid://dcq1bvfrqimqq" path="res://addons/twitcher/chat/twitch_chat.gd" id="5_sdigy"]
+[ext_resource type="Script" uid="uid://cw30cwveway65" path="res://addons/twitcher/generated/twitch_api.gd" id="5_uib1p"]
+[ext_resource type="Resource" uid="uid://dik3ngniojkam" path="res://twitch_oauth_token.tres" id="6_77pqu"]
+[ext_resource type="Resource" uid="uid://d0cdc1wyankdb" path="res://twitch_oauth_setting.tres" id="7_dnrqv"]
+[ext_resource type="Script" uid="uid://iv0mgv0lu8b0" path="res://addons/twitcher/auth/twitch_auth.gd" id="8_dc2yy"]
+[ext_resource type="Resource" uid="uid://bboxhfs3gfklb" path="res://oauth_scopes.tres" id="9_fmoo5"]
+[ext_resource type="Script" uid="uid://bf0wi70haua35" path="res://addons/twitcher/lib/oOuch/oauth.gd" id="10_1it53"]
+[ext_resource type="Script" uid="uid://blnbogtrshw4r" path="res://addons/twitcher/auth/twitch_token_handler.gd" id="11_rlcd1"]
+
+[node name="ChatOrderUpTest" type="Control" unique_id=2027061737]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4qj5q")
+
+[node name="OrderUpTicket" parent="." unique_id=822652159 instance=ExtResource("2_sdigy")]
+layout_mode = 1
+
+[node name="TwitchWrapper" parent="." unique_id=1744304500 instance=ExtResource("3_dtjj1")]
+
+[node name="TwitchEventsub" type="Node" parent="TwitchWrapper" unique_id=795230350 node_paths=PackedStringArray("api")]
+script = ExtResource("4_63sog")
+api = NodePath("../TwitchAPI")
+metadata/_custom_type_script = "uid://blmhj3j00yk45"
+
+[node name="TwitchAPI" type="Node" parent="TwitchWrapper" unique_id=1098443163]
+script = ExtResource("5_uib1p")
+token = ExtResource("6_77pqu")
+oauth_setting = ExtResource("7_dnrqv")
+metadata/_custom_type_script = "uid://cw30cwveway65"
+
+[node name="TwitchAuth" type="Node" parent="TwitchWrapper" unique_id=507247641]
+script = ExtResource("8_dc2yy")
+oauth_setting = ExtResource("7_dnrqv")
+token = ExtResource("6_77pqu")
+scopes = ExtResource("9_fmoo5")
+metadata/_custom_type_script = "uid://iv0mgv0lu8b0"
+
+[node name="OAuth" type="Node" parent="TwitchWrapper/TwitchAuth" unique_id=451684554 node_paths=PackedStringArray("token_handler")]
+script = ExtResource("10_1it53")
+oauth_setting = ExtResource("7_dnrqv")
+scopes = ExtResource("9_fmoo5")
+token_handler = NodePath("../TokenHandler")
+
+[node name="TokenHandler" type="Node" parent="TwitchWrapper/TwitchAuth" unique_id=132007452]
+script = ExtResource("11_rlcd1")
+oauth_setting = ExtResource("7_dnrqv")
+token = ExtResource("6_77pqu")
+
+[node name="TwitchChat" type="Node" parent="TwitchWrapper" unique_id=745944996 node_paths=PackedStringArray("eventsub", "api")]
+script = ExtResource("5_sdigy")
+eventsub = NodePath("../TwitchEventsub")
+api = NodePath("../TwitchAPI")
+subscribe_on_ready = false
+metadata/_custom_type_script = "uid://dcq1bvfrqimqq"
+
+[node name="IngredientCommandHandler" parent="TwitchWrapper/TwitchChat" unique_id=1394219425 node_paths=PackedStringArray("eventsub") instance=ExtResource("4_3tlai")]
+eventsub = NodePath("../../TwitchEventsub")
+
+[connection signal="message_received" from="TwitchWrapper/TwitchChat" to="." method="_on_twitch_chat_message_received"]
+[connection signal="_on_user_order_received" from="TwitchWrapper/TwitchChat/IngredientCommandHandler" to="." method="_on_user_order_received"]

@@ -15,7 +15,7 @@ func _ready() -> void:
 	var ingredients = Ingredient.Kind.values()
 	ingredients.append_array(ingredients)
 	for i in range(len(ingredients)):
-		var entry = OrderEntry.new(ingredients[i], Diner.new(0, "Diner {0}".format([i + 1]), Color.FIREBRICK))
+		var entry = OrderEntry.new(ingredients[i], Diner.new("TEST", "Diner {0}".format([i + 1]), Color.FIREBRICK))
 		print("Pushing {0} from {1}".format([Ingredient.readable_name(entry.ingredient), entry.diner.user_name]))
 		order.push_entry(entry)
 		await get_tree().create_timer(1.0).timeout
