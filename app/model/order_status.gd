@@ -44,6 +44,9 @@ func ingredient_status(index: int) -> IngredientStatus:
 	
 	return IngredientStatus.CORRECT if current_ingredients.get(index) == expected_ingredient(index) else IngredientStatus.INCORRECT
 
+func ingredient_count() -> int:
+	return len(current_ingredients)
+
 func expected_ingredient(index: int = -1) -> Variant:
 	if index == -1:
 		index = num_correct

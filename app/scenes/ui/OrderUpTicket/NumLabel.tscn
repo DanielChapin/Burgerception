@@ -6,6 +6,8 @@
 font_color = Color(0, 0, 0, 1)
 
 [node name="NumLabel" type="Label" unique_id=624905884]
+focus_mode = 2
+focus_behavior_recursive = 2
 label_settings = SubResource("LabelSettings_3e4vp")
 horizontal_alignment = 2
 script = ExtResource("1_3e4vp")
